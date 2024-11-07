@@ -1,0 +1,82 @@
+package lab4;
+enum BankName {
+    ICICI(8.6),
+    HDFC(9.5),
+    SBI(8.5);
+
+    private double interestRate;
+
+    // Constructor
+    BankName(double interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    // Getter method
+    public double getInterestRate() {
+        return interestRate;
+    }
+}
+
+// BankAccount class
+class BankAccount {
+    private double accountBalance;
+    private String accountHolderName;
+    private BankName bankName;
+
+    // Constructor
+    public BankAccount(double accountBalance, String accountHolderName, BankName bankName) {
+        this.accountBalance = accountBalance;
+        this.accountHolderName = accountHolderName;
+        this.bankName = bankName;
+    }
+
+    // Method to calculate interest
+    public double calculateInterest(int numberOfYears) {
+        double totalInterest = bankName.getInterestRate() * numberOfYears * accountBalance;
+        return totalInterest;
+    }
+
+    // Getter methods
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public BankName getBankName() {
+        return bankName;
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Instantiate BankAccount
+        BankAccount account1 = new BankAccount(12000, "Sagar", BankName.SBI);
+        BankAccount account2 = new BankAccount(15000, "Meghana", BankName.ICICI);
+        BankAccount account3 = new BankAccount(10000, "Bhoomi", BankName.HDFC);
+
+        // Print account details
+        System.out.println("Account 1:");
+        System.out.println("Account Holder Name: " + account1.getAccountHolderName());
+        System.out.println("Account Balance: " + account1.getAccountBalance());
+        System.out.println("Bank Name: " + account1.getBankName());
+        System.out.println("Total Interest (5 years): " + account1.calculateInterest(5));
+
+        System.out.println("\nAccount 2:");
+        System.out.println("Account Holder Name: " + account2.getAccountHolderName());
+        System.out.println("Account Balance: " + account2.getAccountBalance());
+        System.out.println("Bank Name: " + account2.getBankName());
+        System.out.println("Total Interest (5 years): " + account2.calculateInterest(5));
+
+        System.out.println("\nAccount 3:");
+        System.out.println("Account Holder Name: " + account3.getAccountHolderName());
+        System.out.println("Account Balance: " + account3.getAccountBalance());
+        System.out.println("Bank Name: " + account3.getBankName());
+        System.out.println("Total Interest (5 years): " + account3.calculateInterest(5));
+    }
+}
+
+
