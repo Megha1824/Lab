@@ -1,0 +1,49 @@
+package lab8;
+//Abstract class Shape
+abstract class Shape {
+ // Abstract method to calculate area
+ public abstract double calculateArea();
+}
+
+//Circle class inherits from Shape
+class Circle extends Shape {
+ private double radius;
+
+ public Circle(double radius) {
+     this.radius = radius;
+ }
+
+ @Override
+ public double calculateArea() {
+     return Math.PI * Math.pow(radius, 2);
+ }
+}
+
+//Rectangle class inherits from Shape
+class Rectangle extends Shape {
+ private double length;
+ private double width;
+
+ public Rectangle(double length, double width) {
+     this.length = length;
+     this.width = width;
+ }
+ @Override
+ public double calculateArea() {
+     return length * width;
+ }
+}
+
+//Main class
+public class Main {
+ public static void main(String[] args) {
+     // Create instances of Circle and Rectangle
+     Circle circle = new Circle(6.0);
+     Rectangle rectangle = new Rectangle(45.0, 4.0);
+
+     // Calculate and print areas
+     System.out.println("Circle Area: " + circle.calculateArea());
+     System.out.println("Rectangle Area: " + rectangle.calculateArea());
+ }
+}
+
