@@ -1,0 +1,60 @@
+package lab7;
+//Student class
+public class Student {
+private String name;
+private int age;
+private String department;
+
+// Default constructor
+public Student() {
+   this.name = "Unknown";
+   this.age = 20;
+   this.department = "Unassigned";
+}
+
+// Constructor with name and age
+public Student(String name, int age) {
+   this.name = name;
+   this.age = age;
+   this.department = "IT";
+}
+
+// Constructor with name, age, and department
+public Student(String name, int age, String department) {
+   this.name = name;
+   this.age = age;
+   this.department = department;
+}
+//Getter methods
+public String getName() {
+   return name;
+}
+
+public int getAge() {
+   return age;
+}
+
+public String getDepartment() {
+   return department;
+}
+
+// toString method to print student details
+@Override
+public String toString() {
+   return "Name: " + name + ", Age: " + age + ", Department: " + department;
+}
+}
+//Main class
+class Main1{
+  public static void main(String[] args) {
+      // Create instances of Student using each constructor
+      Student defaultStudent = new Student();
+      Student itStudent = new Student("John Doe", 25);
+      Student csStudent = new Student("Jane Doe", 22, "Computer Science");
+
+      // Print student details
+      System.out.println("Default Student: " + defaultStudent);
+      System.out.println("IT Student: " + itStudent);
+      System.out.println("CS Student: " + csStudent);
+  }
+}
