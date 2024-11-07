@@ -1,0 +1,45 @@
+package lab7;
+
+ //Base class Vehicle
+ class Vehicle {
+ public void start() {
+     System.out.println("Vehicle started.");
+  }
+ }
+ //Subclass Car
+ class Car extends Vehicle {
+ @Override
+ public void start() {
+     System.out.println("Car started.");
+ }
+}
+ //Subclass Motorcycle
+ class Motorcycle extends Vehicle {
+ @Override
+ public void start() {
+     System.out.println("Motorcycle started.");
+ }
+}
+ //Class Garage
+ class Garage {
+    public void serviceVehicle(Vehicle vehicle) {
+        vehicle.start();
+        System.out.println("Vehicle serviced.");
+    }
+}
+ // Main class
+ public class Main {
+    public static void main(String[] args) {
+        // Create instances of Car and Motorcycle
+        Car car = new Car();
+        Motorcycle motorcycle = new Motorcycle();
+
+        // Create instance of Garage
+        Garage garage = new Garage();
+
+        // Call serviceVehicle() method with Car and Motorcycle instances
+        garage.serviceVehicle(car);
+        garage.serviceVehicle(motorcycle);
+    }
+}
+
