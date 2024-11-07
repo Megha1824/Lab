@@ -1,0 +1,51 @@
+package lab8;
+// Animal superclass
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+// Dog subclass
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Cat subclass
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+//Main class
+public class Main1 {
+ public static void main(String[] args) {
+     // Create objects
+     Animal animal = new Animal();
+     Dog dog = new Dog();
+     Cat cat = new Cat();
+
+     // Display sounds
+     System.out.println("Animal Sound:");
+     animal.makeSound();
+     System.out.println("Dog Sound:");
+     dog.makeSound();
+     System.out.println("Cat Sound:");
+     cat.makeSound();
+
+     // Polymorphism example
+     Animal polymorphicDog = new Dog();
+     Animal polymorphicCat = new Cat();
+     System.out.println("\nPolymorphic Dog Sound:");
+     polymorphicDog.makeSound();
+     System.out.println("Polymorphic Cat Sound:");
+     polymorphicCat.makeSound();
+ }
+}
+
+
+
