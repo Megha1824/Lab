@@ -1,0 +1,36 @@
+package lab3;
+import java.util.Scanner;
+public class car 
+{
+	String make;
+	String model;
+	short year;
+	int price;
+	
+	public car(String make, String model, short year,	int price)  //constructor creation
+	{
+		this.make=make;
+		this.model=model;
+		this.year=year;
+		this.price=price;
+    }
+	public static void main(String[] args) 
+	{
+		  Scanner in = new Scanner(System.in);  //taking input from the user
+	      System.out.print("Enter the Car Make: ");
+	      String make = in.nextLine();
+	      System.out.print("Enter the Car Model: ");
+	      String model = in.nextLine();
+	      System.out.print("Enter the Car Year: ");
+	      short year = in.nextShort();
+	      System.out.print("Enter the Car Price: ");
+	      int price = in.nextInt(); 
+	      car c = new car(make, model, year, price);
+	      
+	      //displaying the input taken from the user
+	      System.out.println("The Car Make is: " + make);    
+	      System.out.println("The Car Model is: " + model);
+	      System.out.println("The Car Year is: " + year);
+	      System.out.println("The Car Price is: " + price);
+	}
+}
