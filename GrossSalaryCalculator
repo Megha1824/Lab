@@ -1,0 +1,38 @@
+package lab6;
+import java.util.Scanner;
+public class GrossSalaryCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.print("Enter basic salary: ");
+            double basicSalary = scanner.nextDouble();
+
+            double hra = calculateHRA(basicSalary);
+            double da = calculateDA(basicSalary);
+            double grossSalary = calculateGrossSalary(basicSalary, hra, da);
+            System.out.println("Basic Salary: " + basicSalary);
+            System.out.println("HRA: " + hra);
+            System.out.println("DA: " + da);
+            System.out.println("Gross Salary: " + grossSalary);
+
+            System.out.print("Enter -1 to continue, any other number to exit: ");
+            choice = scanner.nextInt();
+        } while (choice == -1);
+
+        scanner.close();
+    }
+    public static double calculateHRA(double basicSalary) {
+        return basicSalary > 15000 ? basicSalary * 0.2 : 3000;
+    }
+
+    public static double calculateDA(double basicSalary) {
+        return basicSalary > 15000 ? basicSalary * 0.6 : basicSalary * 0.7;
+    }
+
+    public static double calculateGrossSalary(double basicSalary, double hra, double da) {
+        return basicSalary + hra + da;
+    }
+}
