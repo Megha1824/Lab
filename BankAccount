@@ -1,0 +1,61 @@
+package lab4;
+public class BankAccount {
+    private String accountHolderName;
+    private String bankName;
+    private double accountBalance;
+    // Constructor
+    public BankAccount(String accountHolderName, String bankName, double initialBalance) {
+        this.accountHolderName = accountHolderName;
+        this.bankName = bankName;
+        this.accountBalance = initialBalance;
+    }
+    // Method to get account balance
+    public double getBalance() {
+        return accountBalance;
+    }
+    // Method to deposit money
+    public void deposit(double amount) {
+        if (amount > 0) {
+            accountBalance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (amount > 0 && accountBalance >= amount) {
+            accountBalance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient funds or invalid withdrawal amount");
+        }
+    }
+    // Method to display account information
+    public void displayAccountInfo() {
+        System.out.println("Account Holder Name: " + accountHolderName);
+        System.out.println("Bank Name: " + bankName);
+        System.out.println("Account Balance: " + accountBalance);
+    }
+    public static void main(String[] args) {
+        // Create three bank accounts
+        BankAccount account1 = new BankAccount("Meghana", "ICICI", 1000.0);
+        BankAccount account2 = new BankAccount("Sagar", "HDFC", 500.0);
+        BankAccount account3 = new BankAccount("Bhoomika", "SBI", 2000.0);
+
+        // Deposit and withdraw money for each account
+        account1.deposit(500.0);
+        account1.withdraw(200.0);
+        account1.displayAccountInfo();
+
+        account2.deposit(1000.0);
+        account2.withdraw(750.0);
+        account2.displayAccountInfo();
+
+        account3.deposit(1500.0);
+        account3.withdraw(500.0);
+        account3.displayAccountInfo();
+    }
+}
+
+
