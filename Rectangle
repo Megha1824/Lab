@@ -1,0 +1,35 @@
+package lab2;
+
+public class Rectangle {
+	int length;
+	int width;
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Rectangle a= new Rectangle();
+		a.length=2;
+		a.width=2;
+		int area1 = a.length*a.width;
+		
+		Rectangle b= new Rectangle();
+		b.length=2;
+		b.width=5;
+		int area2 =b .length*b.width;
+		
+		if(area1>area2)
+		{
+			System.out.println("Rectangle1>Rectangle2");
+			
+		}
+		else if(area1<area2)
+		{
+			System.out.println("Rectangle1<Rectangle2");
+		}
+		else
+		{
+			System.out.println("Rectangle1=Rectangle2");
+		}
+	}
+
+}
