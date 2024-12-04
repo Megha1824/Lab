@@ -1,0 +1,61 @@
+package lab14;
+public class ThreadPriorityDemo {
+	public static void main(String[] args) {
+        // Create threads with different priorities
+        Thread lowPriorityThread = new Thread(new LowPriorityTask());
+        lowPriorityThread.setPriority(Thread.MIN_PRIORITY);
+
+        Thread mediumPriorityThread = new Thread(new MediumPriorityTask());
+        mediumPriorityThread.setPriority(Thread.NORM_PRIORITY);
+
+        Thread highPriorityThread = new Thread(new HighPriorityTask());
+        highPriorityThread.setPriority(Thread.MAX_PRIORITY);
+
+        // Start the threads
+        lowPriorityThread.start();
+        mediumPriorityThread.start();
+        highPriorityThread.start();
+    }
+}
+//Low-priority task
+class LowPriorityTask implements Runnable {
+ @Override
+ public void run() {
+     for (int i = 1; i <= 5; i++) {
+         System.out.println("Low Priority Thread: Iteration " + i);
+         try {
+             Thread.sleep(1000); // Sleep for 1 second
+         } catch (InterruptedException e) {
+             Thread.currentThread().interrupt();
+         }
+     }
+ }
+}
+//Medium-priority task
+class MediumPriorityTask implements Runnable {
+ @Override
+ public void run() {
+     for (int i = 1; i <= 5; i++) {
+         System.out.println("Medium Priority Thread: Iteration " + i);
+         try {
+             Thread.sleep(500); // Sleep for 0.5 seconds
+         } catch (InterruptedException e) {
+             Thread.currentThread().interrupt();
+         }
+     }
+ }
+}
+//High-priority task
+class HighPriorityTask implements Runnable {
+ @Override
+ public void run() {
+     for (int i = 1; i <= 5; i++) {
+         System.out.println("High Priority Thread: Iteration " + i);
+         try {
+             Thread.sleep(100); // Sleep for 0.1 seconds
+         } catch (InterruptedException e) {
+             Thread.currentThread().interrupt();
+         }
+     }
+ }
+}
