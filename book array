@@ -1,0 +1,55 @@
+package lab15;
+import java.util.ArrayList;
+
+//Book class
+class Book {
+ private int bookId;
+ private String bookName;
+ private String authorName;
+
+ // Parameterized constructor
+ public Book(int bookId, String bookName, String authorName) {
+     this.bookId = bookId;
+     this.bookName = bookName;
+     this.authorName = authorName;
+ }
+
+ // Getters
+ public int getBookId() {
+     return bookId;
+ }
+
+ public String getBookName() {
+     return bookName;
+ }
+
+ public String getAuthorName() {
+     return authorName;
+ }
+}
+
+public class Main {
+ public static void main(String[] args) {
+     // Create an ArrayList to store Book objects
+     ArrayList<Book> bookList = new ArrayList<>();
+
+  // Create Book objects and add them to the ArrayList
+     bookList.add(new Book(1, "Book1", "Author1"));
+     bookList.add(new Book(2, "Book2", "Author2"));
+     bookList.add(new Book(3, "Book3", "Author3"));
+
+     // Display all book details
+     displayBookDetails(bookList);
+ }
+
+ // Method to display all book details
+ public static void displayBookDetails(ArrayList<Book> bookList) {
+     for (Book book : bookList) {
+         System.out.println("Book ID: " + book.getBookId());
+         System.out.println("Book Name: " + book.getBookName());
+         System.out.println("Author Name: " + book.getAuthorName());
+         System.out.println();
+     }
+    }
+}
+
