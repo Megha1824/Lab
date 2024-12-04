@@ -1,0 +1,36 @@
+package lab15;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main2 {
+    public static void main(String[] args) {
+        // Create an ArrayList of strings
+        ArrayList<String> strings = new ArrayList<>();
+
+        // Add strings to the ArrayList
+        strings.add("Apple");
+        strings.add("Banana");
+        strings.add("Cherry");
+        strings.add("Date");
+        strings.add("Elderberry");
+
+        // Print the original list
+        System.out.println("Original List:");
+        printList(strings);
+
+        // Reverse the list
+        Collections.reverse(strings);
+
+        // Print the reversed list
+        System.out.println("Reversed List:");
+        printList(strings);
+    }
+
+    // Method to print the list
+    public static void printList(ArrayList<String> list) {
+        for (String string : list) {
+            System.out.println(string);
+        }
+    }
+}
+
