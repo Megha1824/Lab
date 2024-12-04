@@ -1,0 +1,39 @@
+package lab13;
+class AverageThread extends Thread {
+    @Override
+    public void run() {
+        int sum = 0;
+        for (int i = 1; i <= 10; i++) {
+            sum += i;
+        }
+        int average = sum / 10;
+        System.out.println("Average of first 10 numbers: " + average);
+    }
+}
+
+class SquareThread extends Thread {
+    private int[] arr;
+
+    public SquareThread(int[] arr) {
+        this.arr = arr;
+    }
+
+    @Override
+    public void run() {
+        for (int num : arr) {
+            System.out.println("Square of " + num + ": " + num * num);
+        }
+    }
+   }
+   public class Main {
+       public static void main(String[] args) throws InterruptedException {
+           int[] arr = {1, 20, 50, 30};
+
+           AverageThread averageThread = new AverageThread();
+           SquareThread squareThread = new SquareThread(arr);
+           averageThread.start();
+           averageThread.join(); // Wait for averageThread to finish
+           squareThread.start();
+       }
+   }
+   
