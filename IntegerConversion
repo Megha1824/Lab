@@ -1,0 +1,26 @@
+package lab10;
+import java.util.Scanner;
+
+public class IntegerConversion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean validInput = false;
+        Integer number = null;
+
+        while (!validInput) {
+            try {
+                System.out.print("Enter an integer: ");
+                String input = scanner.nextLine();
+                number = Integer.parseInt(input);
+                validInput = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+            } catch (NullPointerException e) {
+                System.out.println("Input cannot be null.");
+            }
+        }
+        System.out.println("You entered: " + number);
+        scanner.close();
+    }
+}
+
