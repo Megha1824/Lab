@@ -1,0 +1,33 @@
+package lab15;
+import java.util.ArrayList;
+
+public class Main1 {
+    public static void main(String[] args) {
+        // Create an ArrayList of integers
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        // Add numbers to the ArrayList
+        numbers.add(52);
+        numbers.add(96);
+        numbers.add(44);
+        numbers.add(59);
+        numbers.add(93);
+
+        // Calculate the sum of even numbers
+        int sumOfEvenNumbers = calculateSumOfEvenNumbers(numbers);
+
+        // Print the result
+        System.out.println("Sum of even numbers: " + sumOfEvenNumbers);
+    }
+
+    // Method to calculate the sum of even numbers
+    public static int calculateSumOfEvenNumbers(ArrayList<Integer> numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            if (number % 2 == 0) {
+                sum += number;
+            }
+        }
+        return sum;
+    }
+}
