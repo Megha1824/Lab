@@ -1,0 +1,38 @@
+package lab9;
+//Custom exception class
+public class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+// Person class
+ class Person {
+    private int age;
+    // Constructor that throws InvalidAgeException
+    public Person(int age) throws InvalidAgeException {
+        if (age < 18 || age > 100) {
+            throw new InvalidAgeException("Invalid age. Age must be between 18 and 100.");
+        }
+        this.age = age;
+    }
+    public int getAge() {
+        return age;
+    }
+    public static void main(String[] args) {
+        try {
+            // Valid age
+            Person person1 = new Person(25);
+            System.out.println("Person 1 age: " + person1.getAge());
+            // Invalid age
+            Person person2 = new Person(15);
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            // Invalid age
+            Person person3 = new Person(120);
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
