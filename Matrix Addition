@@ -1,0 +1,53 @@
+package lab12;
+import java.util.Scanner;
+
+public class MatrixAddition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Get matrix dimensions
+        System.out.print("Enter matrix rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter matrix columns: ");
+        int columns = scanner.nextInt();
+        // Create matrices
+        int[][] matrix1 = new int[rows][columns];
+        int[][] matrix2 = new int[rows][columns];
+        int[][] result = new int[rows][columns];
+        // Input matrix elements
+        System.out.println("Enter matrix 1 elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Element [" + (i + 1) + "," + (j + 1) + "]: ");
+                matrix1[i][j] = scanner.nextInt();
+            }
+        }
+        System.out.println("Enter matrix 2 elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Element [" + (i + 1) + "," + (j + 1) + "]: ");
+                matrix2[i][j] = scanner.nextInt();
+            }
+        }
+        // Perform matrix addition
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        // Display results
+        System.out.println("Matrix 1:");
+        printMatrix(matrix1);
+        System.out.println("Matrix 2:");
+        printMatrix(matrix2);
+        System.out.println("Result:");
+        printMatrix(result);
+    }
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
